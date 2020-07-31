@@ -1,15 +1,18 @@
 import { cards } from './cards.js'
+import shuffle from './shuffle_array.js'
 
 // have player choose how many cards to play
 // bonus: set timer
-// shuffle cards
-// add new game  option
+// add new game option
+// add cardflip animation
 
 const container = document.querySelector('.container')
 const cardElements = document.getElementsByClassName('card')
 
 let flippedCard1
 let flippedCard2
+
+shuffle(cards)
 
 cards.map(cardValue => createCardElements(cardValue))
 
