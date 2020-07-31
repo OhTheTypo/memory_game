@@ -1,9 +1,9 @@
 import { cards } from './cards.js'
 
-// todo: make up to 16 cards
 // have player choose how many cards to play
 // bonus: set timer
 // shuffle cards
+// add new game  option
 
 const container = document.querySelector('.container')
 const cardElements = document.getElementsByClassName('card')
@@ -22,17 +22,17 @@ function createCardElements(cardValue) {
 
 function flipCard(cardValue, cardElement) {
     if (flippedCard1 && flippedCard2) return
-    if (cardElement.innerText == '') {
-        cardElement.innerText = cardValue
+    if (cardElement.innerHTML == '') {
+        cardElement.innerHTML = cardValue
         if (flippedCard1) {
             flippedCard2 = { cardValue, cardElement }
-            setTimeout(() => evaluateCards(), 2000)
+            setTimeout(() => evaluateCards(), 1500)
         } else {
             flippedCard1 = { cardValue, cardElement }
         }
     } else {
         if (getNumOfFlippedCards() == 1) {
-            cardElement.innerText = ''
+            cardElement.innerHTML = ''
         }
     }
 }
@@ -40,7 +40,7 @@ function flipCard(cardValue, cardElement) {
 function getNumOfFlippedCards() {
     let numOfFlippedCards = 0
     for (const cardElement of cardElements) {
-        if (cardElement.innerText !== '') {
+        if (cardElement.innerHTML !== '') {
             numOfFlippedCards++
         }
     }
@@ -56,8 +56,8 @@ function evaluateCards() {
             alert('you win')
         }
     } else {
-        flippedCard1.cardElement.innerText = ''
-        flippedCard2.cardElement.innerText = ''
+        flippedCard1.cardElement.innerHTML = ''
+        flippedCard2.cardElement.innerHTML = ''
         flippedCard1 = null
         flippedCard2 = null
     }
