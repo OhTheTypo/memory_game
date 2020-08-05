@@ -3,7 +3,8 @@ import shuffle from './shuffle_array.js'
 
 const container = document.querySelector('.container')
 const cardElements = document.getElementsByClassName('card')
-const startGameButton = document.getElementById('start-game')
+const startGameButton = document.querySelector('button')
+let cards = [...cardsArray]
 let flippedCard1
 let flippedCard2
 
@@ -19,58 +20,65 @@ function startGame() {
         }
     }
 
-    let cards = [...cardsArray]
-    cards = cards.splice(0, numOfCards)
+    const currentCards = cards.slice(0, numOfCards)
+    container.setAttribute('id', `cards-${numOfCards}`)
     container.innerHTML = ''
-    shuffle(cards)
-    cards.forEach(cardValue => createCardElements(cardValue))
+    shuffle(currentCards)
+    currentCards.forEach(cardValue => createCardElements(cardValue))
 }
 
 function createCardElements(cardValue) {
+    const scene = document.createElement('div')
+    scene.setAttribute('class', 'scene')
+
     const cardElement = document.createElement('div')
     cardElement.setAttribute('class', 'card')
+    cardElement.innerHTML = `
+        <div class="card-face card-front"></div>
+        <div class="card-face card-back">${cardValue}</div>
+    `
     cardElement.addEventListener('click', () => flipCard(cardValue, cardElement))
-    container.append(cardElement)
+    scene.append(cardElement)
+    container.append(scene)
 }
 
 function flipCard(cardValue, cardElement) {
     if (flippedCard1 && flippedCard2) return
-    if (cardElement.innerHTML == '') {
-        cardElement.innerHTML = cardValue
+    if (!cardElement.hasAttribute('is-flipped')) {
+        cardElement.classList.add('is-flipped')
         if (flippedCard1) {
             flippedCard2 = { cardValue, cardElement }
-            setTimeout(() => evaluateCards(), 1500)
+            setTimeout(() => evaluateCards(), 1000)
         } else {
             flippedCard1 = { cardValue, cardElement }
         }
     } else {
         if (getNumOfFlippedCards() == 1) {
-            cardElement.innerHTML = ''
+            cardElement.classList.remove('is-flipped')
         }
     }
 }
 
 function getNumOfFlippedCards() {
-    let numOfFlippedCards = 0
-    for (const cardElement of cardElements) {
-        if (cardElement.innerHTML !== '') {
-            numOfFlippedCards++
-        }
-    }
-    return numOfFlippedCards
+    return [...document.querySelectorAll('.is-flipped')].length
 }
 
 function evaluateCards() {
     if (flippedCard1.cardValue == flippedCard2.cardValue) {
-        if (getNumOfFlippedCards() < cards.length) {
+        if (getNumOfFlippedCards() < [...cardElements].length) {
             flippedCard1 = null
             flippedCard2 = null
         } else {
-            alert('you win')
+            let confirmNewGame = confirm('you win! New Game?')
+            if (confirmNewGame) {
+                flippedCard1 = null
+                flippedCard2 = null
+                startGame()
+            }
         }
     } else {
-        flippedCard1.cardElement.innerHTML = ''
-        flippedCard2.cardElement.innerHTML = ''
+        flippedCard1.cardElement.classList.remove('is-flipped')
+        flippedCard2.cardElement.classList.remove('is-flipped')
         flippedCard1 = null
         flippedCard2 = null
     }
