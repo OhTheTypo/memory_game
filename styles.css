@@ -8,6 +8,9 @@ body {
     margin: auto;
     font-family: 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);;
+    background-repeat: no-repeat;
+    min-height: 800px;
 }
 
 .start-game {
@@ -28,32 +31,44 @@ select {
 }
 
 button {
-    padding: 0 20px;
     font-family: 'Arial Narrow', Arial, sans-serif;
     font-size: 18px;
+    background-color: #243B55;
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    padding: 3px 29px;
+}
+
+#reset-game-btn {
+    margin-left: 10px;
 }
 
 .container {
-    margin: 40px auto;
+    margin: 50px auto;
+    background-image: linear-gradient(to bottom right, #243B55, #141E30);
+    box-shadow: 10px 10px 16px #848484;
+    padding: 30px;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 #cards-16 {
-    width: 40%;
+    width: 33%;
 } 
 
 #cards-24 {
-    width: 60%;
+    width: 47%;
 }
 
 #cards-32 {
-    width: 80%;
+    width: 61%;
 }
 
 .scene {
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     margin: 10px;
     perspective: 600px;
 }
@@ -71,27 +86,27 @@ button {
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 7px;
-    border: 1px solid #a2a0a0;
     backface-visibility: hidden;
 }
 
 .card-front {
-    background: #c0c0c0;
+    background: #13f7ff;
+    border-radius: 6px;
 }
 
 .card-back {
-    background: white;
+    background: #fff;
+    border-radius: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
     transform: rotateY(180deg);
 }
 
-.card.is-flipped {
+.is-flipped {
     transform: rotateY(180deg)
 }
 
 i {
-    font-size: 50px;
+    font-size: 30px;
 }

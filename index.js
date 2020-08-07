@@ -3,14 +3,19 @@ import shuffle from './shuffle_array.js'
 
 const container = document.querySelector('.container')
 const cardElements = document.getElementsByClassName('card')
-const startGameButton = document.querySelector('button')
+const startGameButton = document.getElementById('start-game-btn')
+const resetGameButton = document.getElementById('reset-game-btn')
 let cards = [...cardsArray]
 let flippedCard1
 let flippedCard2
 
+startGame()
+
 startGameButton.addEventListener('click', startGame)
+resetGameButton.addEventListener('click', resetGame)
 
 function startGame() {
+    resetGame()
     const options = document.querySelectorAll('option')
     let numOfCards
 
@@ -44,17 +49,17 @@ function createCardElements(cardValue) {
 
 function flipCard(cardValue, cardElement) {
     if (flippedCard1 && flippedCard2) return
-    if (!cardElement.hasAttribute('is-flipped')) {
+    if ([...cardElement.classList].includes('is-flipped')) {
+        if (getNumOfFlippedCards() == 1) {
+        cardElement.classList.remove('is-flipped')
+        }
+    } else {
         cardElement.classList.add('is-flipped')
         if (flippedCard1) {
             flippedCard2 = { cardValue, cardElement }
-            setTimeout(() => evaluateCards(), 1000)
+            setTimeout(() => evaluateCards(), 850)
         } else {
             flippedCard1 = { cardValue, cardElement }
-        }
-    } else {
-        if (getNumOfFlippedCards() == 1) {
-            cardElement.classList.remove('is-flipped')
         }
     }
 }
@@ -70,16 +75,21 @@ function evaluateCards() {
             flippedCard2 = null
         } else {
             let confirmNewGame = confirm('you win! New Game?')
-            if (confirmNewGame) {
-                flippedCard1 = null
-                flippedCard2 = null
-                startGame()
-            }
+            if (confirmNewGame) startGame()
         }
     } else {
         flippedCard1.cardElement.classList.remove('is-flipped')
         flippedCard2.cardElement.classList.remove('is-flipped')
         flippedCard1 = null
         flippedCard2 = null
+    }
+}
+
+function resetGame() {
+    flippedCard1 = null
+    flippedCard2 = null
+
+    for (const card of cardElements) {
+        card.classList.remove('is-flipped')
     }
 }
