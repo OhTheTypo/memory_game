@@ -9,13 +9,12 @@ let cards = [...cardsArray]
 let flippedCard1
 let flippedCard2
 
-startGame()
-
 startGameButton.addEventListener('click', startGame)
 resetGameButton.addEventListener('click', resetGame)
 
+startGame()
+
 function startGame() {
-    resetGame()
     const options = document.querySelectorAll('option')
     let numOfCards
 
@@ -74,8 +73,11 @@ function evaluateCards() {
             flippedCard1 = null
             flippedCard2 = null
         } else {
-            let confirmNewGame = confirm('you win! New Game?')
-            if (confirmNewGame) startGame()
+            let confirmNewGame = confirm('You win! New game?')
+            if (confirmNewGame) {
+                resetGame()
+                startGame()
+            }
         }
     } else {
         flippedCard1.cardElement.classList.remove('is-flipped')
