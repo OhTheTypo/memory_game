@@ -18,6 +18,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 label {
@@ -38,7 +39,6 @@ button {
     border: none;
     border-radius: 14px;
     padding: 3px 29px;
-    cursor: pointer;
 }
 
 #reset-game-btn {
@@ -110,4 +110,22 @@ button {
 
 i {
     font-size: 30px;
+}
+
+@media only screen and (max-width: 992px) {
+    #cards-16, #cards-24, #cards-32 {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 484px) {
+    .start-game {
+        flex-direction: column;
+    }
+    #reset-game-btn {
+        margin-left: 0;
+    }
+    select, button {
+        margin-top: 10px;
+    }
 }
