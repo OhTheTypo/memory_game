@@ -77,6 +77,8 @@ function evaluateCards() {
             if (confirmNewGame) {
                 resetGame()
                 startGame()
+            } else {
+                resetGame()
             }
         }
     } else {

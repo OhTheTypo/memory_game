@@ -31,5 +31,4 @@ export const cardsArray = [
     '<i class="ri-vip-crown-2-fill"></i>',
     '<i class="ri-flask-fill"></i>',
     '<i class="ri-flask-fill"></i>'
-
 ]

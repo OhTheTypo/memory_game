@@ -38,6 +38,7 @@ button {
     border: none;
     border-radius: 14px;
     padding: 3px 29px;
+    cursor: pointer;
 }
 
 #reset-game-btn {
