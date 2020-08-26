@@ -47,11 +47,8 @@ function createCardElements(cardValue) {
 }
 
 function flipCard(cardValue, cardElement) {
-    if (flippedCard1 && flippedCard2) return
     if ([...cardElement.classList].includes('is-flipped')) {
-        if (getNumOfFlippedCards() == 1) {
-        cardElement.classList.remove('is-flipped')
-        }
+        return
     } else {
         cardElement.classList.add('is-flipped')
         if (flippedCard1) {
@@ -64,7 +61,7 @@ function flipCard(cardValue, cardElement) {
 }
 
 function getNumOfFlippedCards() {
-    return [...document.querySelectorAll('.is-flipped')].length
+    return [...document.getElementsByClassName('is-flipped')].length
 }
 
 function evaluateCards() {

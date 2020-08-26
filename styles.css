@@ -6,9 +6,9 @@
 
 body {
     margin: auto;
-    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-family: "Arial Narrow", Arial, sans-serif;
     font-size: 20px;
-    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);;
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
     background-repeat: no-repeat;
     min-height: 800px;
 }
@@ -32,9 +32,9 @@ select {
 }
 
 button {
-    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-family: "Arial Narrow", Arial, sans-serif;
     font-size: 18px;
-    background-color: #243B55;
+    background-color: #243b55;
     color: #fff;
     border: none;
     border-radius: 14px;
@@ -47,7 +47,7 @@ button {
 
 .container {
     margin: 50px auto;
-    background-image: linear-gradient(to bottom right, #243B55, #141E30);
+    background-image: linear-gradient(to bottom right, #243b55, #141e30);
     box-shadow: 10px 10px 16px #848484;
     padding: 30px;
     display: flex;
@@ -57,7 +57,7 @@ button {
 
 #cards-16 {
     width: 33%;
-} 
+}
 
 #cards-24 {
     width: 47%;
@@ -105,7 +105,7 @@ button {
 }
 
 .is-flipped {
-    transform: rotateY(180deg)
+    transform: rotateY(180deg);
 }
 
 i {
@@ -113,7 +113,9 @@ i {
 }
 
 @media only screen and (max-width: 992px) {
-    #cards-16, #cards-24, #cards-32 {
+    #cards-16,
+    #cards-24,
+    #cards-32 {
         width: 95%;
     }
 }
@@ -125,7 +127,8 @@ i {
     #reset-game-btn {
         margin-left: 0;
     }
-    select, button {
+    select,
+    button {
         margin-top: 10px;
     }
 }
