@@ -47,30 +47,30 @@ button {
 
 .container {
     margin: 50px auto;
+    width: max-content;
     background-image: linear-gradient(to bottom right, #243b55, #141e30);
     box-shadow: 10px 10px 16px #848484;
     padding: 30px;
-    display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-gap: 12px;
 }
 
 #cards-16 {
-    width: 33%;
+    grid-template-columns: repeat(4, auto)
 }
 
 #cards-24 {
-    width: 47%;
+    grid-template-columns: repeat(6, auto)
 }
 
 #cards-32 {
-    width: 61%;
+    grid-template-columns: repeat(8, auto);
 }
 
 .scene {
-    width: 80px;
-    height: 80px;
-    margin: 10px;
+    width: 8vw;
+    height: 8vw;
     perspective: 600px;
 }
 
@@ -109,16 +109,9 @@ button {
 }
 
 i {
-    font-size: 30px;
+    font-size: 5vw;
 }
 
-@media only screen and (max-width: 992px) {
-    #cards-16,
-    #cards-24,
-    #cards-32 {
-        width: 95%;
-    }
-}
 
 @media only screen and (max-width: 484px) {
     .start-game {
@@ -130,5 +123,13 @@ i {
     select,
     button {
         margin-top: 10px;
+    }
+} 
+
+@media only screen and (max-width: 388px) {
+    .container {
+        width: 95%;
+        display: flex;
+        flex-wrap: wrap;
     }
 }
