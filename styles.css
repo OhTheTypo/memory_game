@@ -71,7 +71,6 @@ button {
 .scene {
     width: 8vw;
     height: 8vw;
-    perspective: 600px;
 }
 
 .card {
