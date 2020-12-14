@@ -8,9 +8,7 @@ body {
     margin: auto;
     font-family: "Arial Narrow", Arial, sans-serif;
     font-size: 20px;
-    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-    background-repeat: no-repeat;
-    min-height: 800px;
+    background-color: #cfd9df;
 }
 
 .start-game {
