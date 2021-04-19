@@ -2,25 +2,27 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-size: 18px;
 }
 
 body {
     margin: auto;
     font-family: "Arial Narrow", Arial, sans-serif;
-    font-size: 20px;
-    background-color: #cfd9df;
+    height: 100vh;
+    background: #0f0c29;
 }
 
 .start-game {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    padding-top: 20px;
     flex-wrap: wrap;
 }
 
 label {
     margin-right: 10px;
+    color: #fff;
 }
 
 select {
@@ -32,11 +34,20 @@ select {
 button {
     font-family: "Arial Narrow", Arial, sans-serif;
     font-size: 18px;
-    background-color: #243b55;
+    background-color: #9b91ff;
     color: #fff;
     border: none;
-    border-radius: 14px;
-    padding: 3px 29px;
+    padding: 8px 29px;
+    width: 160px;
+}
+
+button:hover {
+    background-color: #bfb9ff;
+    cursor: pointer;
+}
+
+#start-game-btn {
+    margin-left: 10px;
 }
 
 #reset-game-btn {
@@ -44,11 +55,9 @@ button {
 }
 
 .container {
-    margin: 50px auto;
+    margin: 70px auto;
     width: max-content;
-    background-image: linear-gradient(to bottom right, #243b55, #141e30);
-    box-shadow: 10px 10px 16px #848484;
-    padding: 30px;
+    box-shadow: 10px 10px 16px #000000;
     justify-content: center;
     display: grid;
     grid-gap: 12px;
@@ -62,13 +71,9 @@ button {
     grid-template-columns: repeat(6, auto)
 }
 
-#cards-32 {
-    grid-template-columns: repeat(8, auto);
-}
-
 .scene {
-    width: 8vw;
-    height: 8vw;
+    width: 9rem;
+    height: 9rem;
 }
 
 .card {
@@ -78,6 +83,7 @@ button {
     transition: transform 1s;
     transform-style: preserve-3d;
     cursor: pointer;
+    
 }
 
 .card-face {
@@ -88,8 +94,12 @@ button {
 }
 
 .card-front {
-    background: #13f7ff;
+    background: #9b91ff;
     border-radius: 6px;
+}
+
+.card-front:hover {
+    background: #bfb9ff;
 }
 
 .card-back {
@@ -109,13 +119,28 @@ i {
     font-size: 5vw;
 }
 
+@media only screen and (max-width: 1062px) {
+    #cards-24 {
+        grid-template-columns: repeat(4, auto)
+    } 
+}
 
-@media only screen and (max-width: 484px) {
+@media only screen and (max-width: 775px) {
+    #cards-16 {
+        grid-template-columns: repeat(2, auto)
+    } 
+    #cards-24 {
+        grid-template-columns: repeat(2, auto)
+    } 
+}
+
+@media only screen and (max-width: 570px) {
     .start-game {
         flex-direction: column;
+        text-align: center;
     }
-    #reset-game-btn {
-        margin-left: 0;
+    label {
+        margin-right: 0;
     }
     select,
     button {
