@@ -93,4 +93,6 @@ function resetGame() {
     for (const card of cardElements) {
         card.classList.remove('is-flipped')
     }
+
+    startGame()
 }
